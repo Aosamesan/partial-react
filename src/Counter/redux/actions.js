@@ -1,0 +1,4 @@
+export const ACTION_TYPE = {
+    INCREASE: "INCREASE",
+    DECREASE: "DECREASE"
+}

@@ -1,0 +1,41 @@
+{
+  "name": "partial-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aosamesan/partial-react.git"
+  },
+  "author": "Aosamesan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aosamesan/partial-react/issues"
+  },
+  "homepage": "https://github.com/Aosamesan/partial-react#readme",
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "html-react-parser": "^0.6.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "bootstrap": "^4.2.1",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-uglify": "^3.0.1",
+    "requirejs": "^2.3.6",
+    "webpack-stream": "^5.2.1",
+    "yargs": "^12.0.5"
+  }
+}
