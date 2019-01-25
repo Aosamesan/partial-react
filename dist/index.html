@@ -62,7 +62,7 @@
         <div class="card-body">
             <div id="example-paging" class="card text-center">
                 <div class="card-body">
-                    <div class="card">
+                    <div class="card _page">
                         <div class="card-header">
                             <h5>Page 1</h5>
                         </div>
@@ -70,7 +70,7 @@
                             <p>Contents1</p>
                         </div>
                     </div>
-                    <div class="card" style="display:none;">
+                    <div class="card _page" style="display:none;">
                         <div class="card-header">
                             <h5>Page 2</h5>
                         </div>
@@ -78,7 +78,7 @@
                             <p>Contents2</p>
                         </div>
                     </div>
-                    <div class="card" style="display:none;">
+                    <div class="card _page" style="display:none;">
                         <div class="card-header">
                             <h5>Page 3</h5>
                         </div>
@@ -88,10 +88,12 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="btn-group" role="group">
+                    <div class="btn-group _page_navigation" role="group">
+                        <button class="btn btn-secondary" type="button">&lt;</button>
                         <button class="btn btn-secondary" type="button">1</button>
                         <button class="btn btn-secondary" type="button">2</button>
                         <button class="btn btn-secondary" type="button">3</button>
+                        <button class="btn btn-secondary disabled" type="button">&gt;</button>
                     </div>
                 </div>
             </div>
@@ -109,6 +111,13 @@
             aosamesan.controllers.TabController('#example-tab', {
                 state: {
                     tabIndex: 1
+                }
+            })
+        })
+        aosamesan.common.load('./Paging.js', function() {
+            aosamesan.controllers.PagingController('#example-paging', {
+                state: {
+                    currentPage: 2
                 }
             })
         })
