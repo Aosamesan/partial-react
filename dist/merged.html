@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Test</title>
+    <link href="bootstrap.min.css" rel="stylesheet" />
+    <script src="require.js"></script>
+    <script src="loader.js"></script>
+</head>
+<body>
+    <div class="card" style="margin:5rem;">
+        <div class="card-header">
+            <h2>Counter</h2>
+        </div>
+        <div id="example-counter" class="card-body text-center">
+            <h2 class="card-title">Count : 0</h2>
+            <div class="btn-group btn-group-lg" role="group">
+                <button class="btn btn-success" type="button">Increase</button>
+                <button class="btn btn-danger" type="button">Decrease</button>
+            </div>
+        </div>
+        <div class="card-header">
+            <h2>Tab</h2>
+        </div>
+        <div class="card-body">
+            <div id="example-tab" class="card">
+                <div class="card-header">
+                    <ul class="nav nav-tabs nav-justified card-header-tabs _tab_menu">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active">Tab1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Tab2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Tab3</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Tab4</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-body _tab_wrapper">
+                    <div class="_tab_panel">
+                        <h1>Page1</h1>
+                    </div>
+                    <div class="_tab_panel" style="display:none;">
+                        <h1>Page2</h1>
+                    </div>
+                    <div class="_tab_panel" style="display:none;">
+                        <h1>Page3</h1>
+                    </div>
+                    <div class="_tab_panel" style="display:none;">
+                        <h1>Page4</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-header">
+            <h2>Paging</h2>
+        </div>
+        <div class="card-body">
+            <div id="example-paging" class="card text-center">
+                <div class="card-body">
+                    <div class="card _page">
+                        <div class="card-header">
+                            <h5>Page 1</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Contents1</p>
+                        </div>
+                    </div>
+                    <div class="card _page" style="display:none;">
+                        <div class="card-header">
+                            <h5>Page 2</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Contents2</p>
+                        </div>
+                    </div>
+                    <div class="card _page" style="display:none;">
+                        <div class="card-header">
+                            <h5>Page 3</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>Contents3</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="btn-group _page_navigation" role="group">
+                        <button class="btn btn-secondary" type="button">&lt;</button>
+                        <button class="btn btn-secondary" type="button">1</button>
+                        <button class="btn btn-secondary" type="button">2</button>
+                        <button class="btn btn-secondary" type="button">3</button>
+                        <button class="btn btn-secondary disabled" type="button">&gt;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        aosamesan.common.load('./Merged.js', function() {
+            aosamesan.controllers.CounterController('#example-counter', {
+                state: {
+                    count: 0
+                }
+            })
+            aosamesan.controllers.TabController('#example-tab', {
+                state: {
+                    tabIndex: 1
+                }
+            })
+            aosamesan.controllers.PagingController('#example-paging', {
+                state: {
+                    currentPage: 2
+                }
+            })
+        })
+    </script>
+</body>
+</html>

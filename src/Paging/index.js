@@ -74,11 +74,20 @@ const Paging = props => connect(state => ({
     movePage: idx => dispatch(movePage(idx))
 }))(PagingComponent)
 
-defineController('Paging', defineParameter(Paging, storeFactory), selector => {
+const pagingDomSelector =  selector => {
     const root = document.querySelector(selector)
     const pages = [...root.querySelectorAll('._page')].map(page => page.innerHTML)
     return {
         pages,
         pageCount: pages.length
     }
-})
+}
+
+export const PagingParam = {
+    name: 'Paging',
+    param: {
+        component: Paging,
+        storeFactory
+    },
+    domSelector: pagingDomSelector
+}

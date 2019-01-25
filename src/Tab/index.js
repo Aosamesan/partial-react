@@ -32,7 +32,7 @@ class TabComponent extends React.Component {
                                 let selected = idx === tabIndex
 
                                 return (
-                                    <li className="nav-item">
+                                    <li className="nav-item" key={idx}>
                                         <a href="#" className={"nav-link" + (selected ? " active" : "")} onClick={this.onTabClick(idx)}>{title}</a>
                                     </li>
                                 )
@@ -56,7 +56,7 @@ const Tab = props => connect(state => ({
     changeTab: idx => dispatch(changeTab(idx))
 }))(TabComponent)
 
-defineController('Tab', defineParameter(Tab, storeFactory), selector => {
+const tabDomSelector = selector => {
     const root = document.querySelector(selector)
     const tabTitles = [...root.querySelector('._tab_menu').querySelectorAll('.nav-item .nav-link')].map(n => n.innerText)
     const tabContents = [...root.querySelector('._tab_wrapper').querySelectorAll('._tab_panel')].map(n => n.innerHTML)
@@ -64,4 +64,13 @@ defineController('Tab', defineParameter(Tab, storeFactory), selector => {
         titles: tabTitles,
         contents: tabContents
     }
-})
+}
+
+export const TabParam = {
+    name: 'Tab',
+    param: {
+        component: Tab,
+        storeFactory
+    },
+    domSelector: tabDomSelector
+}

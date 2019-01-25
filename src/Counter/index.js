@@ -42,4 +42,10 @@ const Counter = props => connect(state => ({
     decrease: () => dispatch(decreaseCount())
 }))(CounterComponent)
 
-defineController('Counter', defineParameter(Counter, storeFactory))
+export const  CounterParam = {
+    name: 'Counter',
+    param: {
+        component: Counter,
+        storeFactory: storeFactory
+    }
+}

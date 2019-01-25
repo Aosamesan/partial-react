@@ -2,7 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 
-export const defineController = (name, param, domSelector) => {
+export const defineController = (params) => define(defineMergedConfig(params))
+
+export const defineConfig = ({name, param, domSelector}) => {
     const { component, storeFactory } = param
     let config = {}
     config[`${name}Controller`] = (selector, params) => {
@@ -18,8 +20,10 @@ export const defineController = (name, param, domSelector) => {
             document.querySelector(selector)
             )
     }
-    define(config)
+    return config
 }
+
+export const defineMergedConfig = (params) => params.map(defineConfig).reduce((prev, current) => ({...prev, ...current}), {})
 
 export const defineParameter = (component, storeFactory) => ({
     component,
